@@ -1,0 +1,30 @@
+{% extends "recognition/StudentsLayout.html" %} 
+{% load crispy_forms_tags %} 
+
+{% block content %}
+<div class="main">
+    <!-- Create a Form -->
+    <p>Edit Form</p>
+    <form method="POST">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+ 
+        <!-- form as paragraph -->
+        
+        {{ profile_form.email|as_crispy_field }}
+        {{ profile_form.contactNumber|as_crispy_field }}
+        {{ profile_form.department|as_crispy_field }}
+        {{ profile_form.desigination|as_crispy_field }}
+       
+        <input type="submit" value="Update">
+    </form>
+ 
+</div>
+{% if messages %}
+{% for message in messages%}
+<div class="alert alert-{{message.tags}}"> {{message}}
+</div>
+{%endfor %}
+
+{%endif%}
+{% endblock content %}

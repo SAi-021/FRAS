@@ -1,0 +1,127 @@
+{% extends "recognition/Layout.html" %} {% load static %} {% block content %}
+
+<div class="row" style="padding-bottom: 0px; margin-bottom: 0px">
+  <!-- Left col -->
+  <section class="col-lg-12 connectedSortable">
+    <!-- Custom tabs (Charts with tabs)-->
+    <div class="card">
+      <div class="card-tools">
+        <ul class="nav nav-pills ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="{%url 'view-attendance-home' %}"
+              >dashboard</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'view-attendance-employee' %}"
+              >Records by Employee name</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'view-attendance-date' %}"
+              >Records by Date</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{total_num_of_emp }}</h3>
+
+                <p>Total Number Of Employee</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+             
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{emp_present_today }}</h3>
+
+                <p>Employee Present Today</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- ./col -->
+        </div>
+      </div>
+    </section>
+
+    <br />
+
+    <div class="row">
+      <!-- Left col -->
+      <section class="col-lg-12 connectedSortable">
+        <!-- Custom tabs (Charts with tabs)-->
+        <div class="card">
+         
+
+          <div class="card-body" >
+            <div>
+              <canvas id="myChart"></canvas>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script>
+  var presentToday = JSON.parse("{{emp_present_today }}");
+  var totalEmploy = JSON.parse("{{total_num_of_emp }}");
+  var absentEmploy = totalEmploy -presentToday
+  
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+  labels: [
+    'Absent',
+    'Present',
+    
+  ],
+  datasets: [{
+    label: 'Emploees Today',
+    data: [absentEmploy, presentToday],
+    backgroundColor: [
+      'rgb(255, 0, 0)',
+      'rgb(54, 162, 235)',
+      
+    ],
+    hoverOffset: 4
+  }],
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  }
+}
+  );
+</script>
+
+{% endblock content %}
