@@ -1,13 +1,11 @@
 # FRAS — Automated Attendance System Using Face Recognition
 
-A full-stack web application that replaces manual, paper-based attendance registers with **face-recognition-based attendance tracking**. Employees are marked "in", on a "break", or "out" simply by looking at a webcam — no cards, no sign-in sheets, no proxy attendance.
+A full-stack web application that replaces manual, paper-based attendance registers with **face-recognition-based attendance system**. Employees are marked "in", on a "break", or "out" simply by looking at a webcam.
 
 Built with **Python, Django, OpenCV, dlib (HOG-based face detector) and scikit-learn**, with a Bootstrap front end and Chart.js-powered visual attendance reports.
 
-> Final-year BCA project — Department of Computer Science, GITAM School of Science, GITAM (Deemed to be University), Visakhapatnam. (Dec 2023 – Apr 2024)
-
----
-
+> Final-year BCA project (Dec 2023 – Apr 2024)
+> 
 ## Table of Contents
 
 - [Overview](#overview)
@@ -231,11 +229,6 @@ The project was validated using:
 ## Author
 
 **S Sai Krishna**
-Bachelor of Computer Applications, GITAM (Deemed to be University) · 2024
+Bachelor of Computer Applications, 2024
 📧 sai2002siva@gmail.com · 🔗 [LinkedIn](https://www.linkedin.com/in/s-sai-krishna21)
-
-Guided by **Dr. M. Seshashayee**, Assistant Professor, Department of Computer Science, GITAM School of Science.
-
 ---
-
-*If you find this project useful, consider giving it a ⭐ on GitHub!*
