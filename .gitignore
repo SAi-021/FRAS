@@ -1,0 +1,37 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+myworld/
+*.venv
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+*.log
+
+# Environment variables / secrets
+.env
+
+# Face recognition generated / large / sensitive data
+face_recognition_data/training_dataset/*
+!face_recognition_data/training_dataset/.gitkeep
+face_recognition_data/classes.npy
+face_recognition_data/svc.sav
+face_recognition_data/shape_predictor_68_face_landmarks.dat
+
+# Generated attendance graphs
+attendance/static/recognition/img/attendance_graphs/*/*.png
+!attendance/static/recognition/img/attendance_graphs/*/.gitkeep
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
